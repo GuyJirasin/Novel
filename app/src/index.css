@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --bg-canvas: #000000;
+  --bg-surface: #0d0d0f;
+  --bg-elevated: #16161a;
+  --bg-sheet: #0b0b0d;
+  --bg-pill: #18181b;
+  --text-primary: #d4d4d8;
+  --text-secondary: #8e8e98;
+  --text-muted: #52525b;
+  --accent-primary: #7dd3fc;
+  --border-subtle: #222226;
+  --track-bg: #27272a;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", "IBM Plex Sans Thai", system-ui, -apple-system, sans-serif;
+}
+
+/* Custom minimal OLED scrollbar */
+.oled-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.oled-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.oled-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+
+/* Custom Range Slider matching Concept 4 Figma design */
+input[type="range"].oled-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"].oled-slider:focus {
+  outline: none;
+}
+
+input[type="range"].oled-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 9999px;
+}
+
+input[type="range"].oled-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background: var(--accent-primary);
+  margin-top: -7px;
+  box-shadow: 0 0 0 2px var(--bg-sheet);
+  transition: transform 0.12s ease;
+}
+
+input[type="range"].oled-slider::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+}
+
+input[type="range"].oled-slider::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border: 2px solid var(--bg-sheet);
+  border-radius: 9999px;
+  background: var(--accent-primary);
+}
